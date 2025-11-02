@@ -3,13 +3,12 @@
 In [1]: from bookshelf.models import Book
 
 #Next a book instace was created with the description in the class variable. 
-In [2]: book = Book(title= "1984", author= "George Orwell", publication_year
-   ...: = 1949)
+#Create Operation
 
-#The the save function was called for the book instance using book.save
-In [3]: book.save()
+In [2]: book = Book.objects.create( title= "1984", author = "George Orwell", publi
+   ...: cation_year = 1958 )
 
 #Results
 #To confirm the creation of the book instance it was called to output
-In [4]: print(book)
+In [3]: print(book)
 1984
