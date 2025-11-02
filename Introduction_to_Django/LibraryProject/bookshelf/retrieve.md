@@ -1,6 +1,6 @@
  #Retrieve Operation
 
-In [4]: for book in Book.objects.all().values():
-   ...:     print(book)
-   ...:
-{'id': 3, 'title': '1984', 'author': 'George Orwell', 'publication_year': 1958}
+book = Book.objects.get(title = "1984")
+
+In [7]: book.title, book.author, book.publication_year
+Out[7]: ('1984', 'George Orwell', 1958)
