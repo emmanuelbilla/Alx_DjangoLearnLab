@@ -20,8 +20,7 @@ def get_books_by_author(author_name):
 def get_books_in_library(library_name):
     try:
         library = Library.objects.get(name=library_name)
-        books = Book.objects.filter(library=library)
-        return books
+        return library.books.all()
     except Library.DoesNotExist:
         return None
 
