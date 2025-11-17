@@ -12,7 +12,7 @@ Creating a function-based view in relationship_app/views.py:
     '''
 def list_books(request):
     # Fetching all Book objects from the database
-    books = Book.objects.select_related('author').all()
+    books = Book.objects.all()
     
     # Creating a context dictionary to pass to the template
     context = {
