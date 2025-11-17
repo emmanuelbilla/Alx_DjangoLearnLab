@@ -9,5 +9,5 @@ app_name = 'relationship_app' # Setting application namespace for URL namespacin
 # Defining URL patterns for the relationship app
 urlpatterns = [
     path('books/', list_books, name='list_books'), # URL pattern for listing books
-    path('library/<int:pk>/', library_detail.as_view(), name='library_detail'), # URL pattern for library detail view
+    path('library/<int:pk>/', library_detail.as_view(), name='LibraryDetailView'), # URL pattern for library detail view
 ]
