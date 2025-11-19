@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Importing the necessary model
 from .models import Book
@@ -41,3 +41,25 @@ class library_detail(DetailView):
         context['books'] = self.object.books.all()
         return context
     
+''' 
+Creating user registration and authentication views in relationship_app/views.py:
+    - Allow new users to register.
+    - Handle user login and logout functionalities.
+    - Utilize Django’s built-in authentication views and forms where appropriate.
+'''
+# Authentication Views
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.decorators import login_required
+
+def register_user(request):
+    if request.method == 'POST': # Handling form submission
+            form = UserCreationForm(request.POST) # Creating a form instance with POST data
+            if form.is_valid(): # Validating the form
+                user = form.save()
+                login(request, user)
+                return redirect('list_books') # Redirecting to the book list after successful registration
+            
+    else: # Displaying the registration form
+            form = UserCreationForm()
+    return render(request, 'relationship_app/register.html', {'form': form})
