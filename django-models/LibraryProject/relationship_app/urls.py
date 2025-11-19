@@ -8,6 +8,11 @@ from django.contrib.auth import views as auth_views # Importing Django's built-i
 from .views import register # Importing custom user registration view
 from . import views # Importing views module for additional view functions
 
+# Importing additional views for RBAC (Role-Based Access Control)
+from .admin_view import admin_view
+from .librarian_view import librarian_view
+from .member_view import member_view
+
 app_name = 'relationship_app' # Setting application namespace for URL namespacing
 
 # Defining URL patterns for the relationship app
@@ -17,4 +22,9 @@ urlpatterns = [
     path('register/', views.register, name='register'), # URL pattern for user registration
     path('login/', auth_views.LoginView.as_view(template_name='relationship_app/login.html'), name='login'), # URL pattern for user login
     path('logout/', auth_views.LogoutView.as_view(template_name='relationship_app/logout.html'), name='logout'), # URL pattern for user logout
+
+    # URL patterns for role-based access control views
+    path('admin-view/', admin_view, name='admin_view'),
+    path('librarian-view/', librarian_view, name='librarian_view'),
+    path('member-view/', member_view, name='member_view'), 
 ]
