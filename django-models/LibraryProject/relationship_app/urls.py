@@ -5,7 +5,8 @@ Django URL configuration for relationship app managing book and library views.
 from django.urls import path # Importing path function to define URL patterns
 from .views import list_books, library_detail # Importing views for handling requests
 from django.contrib.auth import views as auth_views # Importing Django's built-in authentication views
-from .views import register_user # Importing custom user registration view
+from .views import register # Importing custom user registration view
+from . import views # Importing views module for additional view functions
 
 app_name = 'relationship_app' # Setting application namespace for URL namespacing
 
@@ -13,7 +14,7 @@ app_name = 'relationship_app' # Setting application namespace for URL namespacin
 urlpatterns = [
     path('books/', list_books, name='list_books'), # URL pattern for listing books
     path('library/<int:pk>/', library_detail.as_view(), name='LibraryDetailView'), # URL pattern for library detail view
-    path('register/', register, name='register'), # URL pattern for user registration
+    path('register/', views.register, name='register'), # URL pattern for user registration
     path('login/', auth_views.LoginView.as_view(template_name='relationship_app/login.html'), name='login'), # URL pattern for user login
     path('logout/', auth_views.LogoutView.as_view(template_name='relationship_app/logout.html'), name='logout'), # URL pattern for user logout
 ]
