@@ -52,7 +52,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 
-def register_user(request):
+def register(request):
     if request.method == 'POST': # Handling form submission
             form = UserCreationForm(request.POST) # Creating a form instance with POST data
             if form.is_valid(): # Validating the form

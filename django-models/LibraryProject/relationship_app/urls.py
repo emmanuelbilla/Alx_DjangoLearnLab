@@ -13,7 +13,7 @@ app_name = 'relationship_app' # Setting application namespace for URL namespacin
 urlpatterns = [
     path('books/', list_books, name='list_books'), # URL pattern for listing books
     path('library/<int:pk>/', library_detail.as_view(), name='LibraryDetailView'), # URL pattern for library detail view
-    path('register/', register_user, name='register'), # URL pattern for user registration
+    path('register/', register, name='register'), # URL pattern for user registration
     path('login/', auth_views.LoginView.as_view(template_name='relationship_app/login.html'), name='login'), # URL pattern for user login
     path('logout/', auth_views.LogoutView.as_view(template_name='relationship_app/logout.html'), name='logout'), # URL pattern for user logout
 ]
