@@ -29,7 +29,7 @@ urlpatterns = [
     path('member-view/', member_view, name='member_view'), 
 
     #Additional URL patterns for adding, editing, and deleting books
-    path('book/add/', views.add_book, name='add_book'),
-    path('book/edit/<int:book_id>/', views.edit_book, name='edit_book'),
-    path('book/delete/<int:book_id>/', views.delete_book, name='delete_book'),
+    path('add_book/', views.add_book, name='add_book'),
+    path('edit_book/<int:book_id>/', views.edit_book, name='edit_book'),
+    path('delete_book/<int:book_id>/', views.delete_book, name='delete_book'),
 ]
