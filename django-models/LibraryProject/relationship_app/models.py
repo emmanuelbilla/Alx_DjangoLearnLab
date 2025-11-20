@@ -33,6 +33,21 @@ class Librarian(models.Model):
     def __str__(self):
         return self.name
 
+    '''Adding custom permissions to the Book model to specify who can add, edit, or delete entries. 
+    1. Defining a nested Meta class within the Book model.
+    2. Specifying a permissions tuple that includes permissions ca_add_book, can_change_book, and can_delete_book within the Meta class.'''
+    # Adding custom permissions to Book model
+    class Meta:
+        permissions = [
+            ("can_add_book", "Can add book"),
+            ("can_change_book", "Can change book"),
+            ("can_delete_book", "Can delete book"),
+        ]
+    
+    # Sring representation of Book model
+    def __str__(self):
+        return self.title
+
 ''' 
 Creating the UserProfile model to demonstrate OneToOne relationship with Django's built-in User model. 
 '''
@@ -65,4 +80,4 @@ def create_user_profile(sender, instance, created, **kwargs): # Function to crea
 def save_user_profile(sender, instance, **kwargs): # Function to save UserProfile
     instance.profile.save() # Save UserProfile on User update
 
-    
+   
