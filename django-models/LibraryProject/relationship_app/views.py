@@ -63,3 +63,33 @@ def register(request):
     else: # Displaying the registration form
             form = UserCreationForm()
     return render(request, 'relationship_app/register.html', {'form': form})
+
+    ''' Creating RBAC views in relationship_app/views.py:'''
+
+    # Importing necessary modules not previously imported
+    from django.contrib.auth.decorators import user_passes_test
+
+    # Role check function
+    def is_admin(user):
+         return hasattr(user, 'userprofile') and user.userprofile.role == 'Admin'
+    
+    def is_librarian(user):
+         return hasattr(user, 'userprofile') and user.userprofile.role == 'Librarian'
+    
+    def is_member(user):
+         return hasattr(user, 'userprofile') and user.userprofile.role == 'Member'
+    
+    # Admin-only view
+    @user_passes_test(is_admin)
+    def admin_view(request):
+        return render(request, 'relationship_app/admin_view.html')
+    
+    # Librarian-only view
+    @user_passes_test(is_librarian)
+    def librarian_view(request):
+        return render(request, 'relationship_app/librarian_view.html')
+    
+    # Member-only view
+    @user_passes_test(is_member)
+    def member_view(request):
+        return render(request, 'relationship_app/member_view.html')
