@@ -1,5 +1,5 @@
 '''Description of code:
-Django URL configuration for relationship app managing book and library views.
+    -Django URL configuration for relationship app managing book and library views.
 '''
 
 from django.urls import path # Importing path function to define URL patterns
