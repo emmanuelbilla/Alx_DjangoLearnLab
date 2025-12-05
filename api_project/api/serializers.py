@@ -1,4 +1,4 @@
- 'Defining a BookSerializer class which would extend rest_framework.serializers.ModelSerializer and include all fields of the Book model.'
+'Defining a BookSerializer class which would extend rest_framework.serializers.ModelSerializer and include all fields of the Book model.'
 
 #importing necessary modules
 from rest_framework import serializers
