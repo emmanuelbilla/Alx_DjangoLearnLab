@@ -28,8 +28,7 @@ from rest_framework import viewsets
 class BookViewSet(viewsets.ModelViewSet):
     queryset = Book.objects.all()  #Queryset to retrieve all Book objects
     serializer_class = BookSerializer  #Serializer class to convert Book objects to JSON format
-
-# Adding authentication and permissions
+    # Adding authentication and permission classes
     authentication_classes = [TokenAuthentication]  #Using TokenAuthentication for this viewset
     permission_classes = [IsAuthenticated]  #Restricting access to authenticated users only
 
