@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'api',
+    
+    #Adding rest framework authtoken to installed apps
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
