@@ -13,6 +13,7 @@ from .serializers import BookSerializer
 #Adding authentication and permissions
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.viewsets import ModelViewSet
 
 #Defining the BookList view
 class BookList(generics.ListAPIView):
