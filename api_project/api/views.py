@@ -10,6 +10,10 @@ from rest_framework import generics
 from .models import Book
 from .serializers import BookSerializer
 
+#Adding authentication and permissions
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
+
 #Defining the BookList view
 class BookList(generics.ListAPIView):
     queryset = Book.objects.all()  #Queryset to retrieve all Book objects
@@ -24,4 +28,9 @@ from rest_framework import viewsets
 class BookViewSet(viewsets.ModelViewSet):
     queryset = Book.objects.all()  #Queryset to retrieve all Book objects
     serializer_class = BookSerializer  #Serializer class to convert Book objects to JSON format
+
+# Adding authentication and permissions
+    authentication_classes = [TokenAuthentication]  #Using TokenAuthentication for this viewset
+    permission_classes = [IsAuthenticated]  #Restricting access to authenticated users only
+
 
