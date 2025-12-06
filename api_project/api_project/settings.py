@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'api',
-    
+
     #Adding rest framework authtoken to installed apps
     'rest_framework.authtoken',
 ]
@@ -125,3 +125,18 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+'''Add REST framework settings for authentication'''
+
+REST_FRAMEWORK = {
+    # Use TokenAuthentication and SessionAuthentication
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ],
+    # Set default permission to AllowAny
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny', # Change to IsAuthenticated in production
+    ],
+}
