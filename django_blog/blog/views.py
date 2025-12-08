@@ -6,7 +6,10 @@ from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
-# from .forms import RegisterForm
+from .forms import RegistrationForm as RegisterForm
+from .models import Post
+from django.contrib.auth.models import User
+
 
 def register_view(request):
     if request.method == "POST":
@@ -36,3 +39,8 @@ def profile_view(request):
 
 def home_view(request):
     return render(request, "blog/home.html")
+
+# View to list blog posts
+def post_list(request):
+    # Logic to retrieve and display blog posts would go here
+    return render(request, "blog/post_list.html")

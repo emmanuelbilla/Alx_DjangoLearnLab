@@ -24,6 +24,6 @@ urlpatterns = [
     path('', views.home_view, name='home'),
 
     # Post detail URL
-    path('post/', views.list, name='post'),
+    path('post/', views.post_list, name='posts'),
     
 ]
