@@ -6,6 +6,10 @@ from django.urls import path
 from django.contrib.auth import views as auth_views
 from . import views
 
+#Required imports for CRUD operations on blog posts
+from .views import PostListView, PostDetailView, PostCreateView, PostUpdateView, PostDeleteView
+
+
 #Define URL patterns
 urlpatterns = [
     # Registration URL
@@ -25,5 +29,13 @@ urlpatterns = [
 
     # Post detail URL
     path('post/', views.post_list, name='posts'),
+
+    # CRUD URLs for blog posts
+    path('posts/', PostListView.as_view(), name='posts'), # List view for posts
+    path('posts/new/', PostCreateView.as_view(), name='post-create'), # Create view for a new post
+    path('posts/<int:pk>/', PostDetailView.as_view(), name='post-detail'), # Detail view for a single post
+    path('posts/<int:pk>/edit/', PostUpdateView.as_view(), name='post-update'), # Update view for a post
+    path('posts/<int:pk>/delete/', PostDeleteView.as_view(), name='post-delete'), # Delete view for a post
+
     
 ]
