@@ -33,3 +33,6 @@ def profile_view(request):
             user.save()
             messages.success(request, "Profile updated successfully.")
     return render(request, "blog/profile.html")
+
+def home_view(request):
+    return render(request, "blog/home.html")

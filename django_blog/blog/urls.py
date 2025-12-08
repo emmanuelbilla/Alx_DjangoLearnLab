@@ -19,5 +19,11 @@ urlpatterns = [
 
     # Profile URL
     path('profile/', views.profile_view, name='profile'),
+
+    # Home URL
+    path('', views.home_view, name='home'),
+
+    # Post detail URL
+    path('post/', views.list, name='post'),
     
 ]
