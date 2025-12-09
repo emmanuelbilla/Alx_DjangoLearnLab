@@ -7,7 +7,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
 # Import Post model
-from .models import Post
+from .models import Post # Import Post model for creating post forms
 
 # Define registration form
 class RegistrationForm(UserCreationForm):
@@ -23,7 +23,7 @@ class PostForm(forms.ModelForm):
         model = Post
         fields = ['title', 'content']
         widgets = {
-            'content': forms.Textarea(attrs={'rows': 8}),
+            'title': forms.TextInput(attrs={'placeholder': 'Enter post title'}),
+            'content': forms.Textarea(attrs={'rows': 8, 'placeholder': 'Write your post content here...'}),
         }
         
-    
