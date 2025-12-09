@@ -10,7 +10,7 @@ from django.contrib.auth.models import User
 
 # Imports for comment model
 from django.utils import timezone
-from .models import Post
+#from .models import Post
 
 #Defining Post model
 class Post(models.Model):
