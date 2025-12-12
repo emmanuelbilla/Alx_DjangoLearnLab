@@ -7,7 +7,7 @@ from django.contrib.auth import views as auth_views
 from . import views
 
 #Required imports for CRUD operations on blog posts
-from .views import PostListView, PostDetailView, PostCreateView, PostUpdateView, PostDeleteView
+from .views import PostListView, PostDetailView, PostCreateView, PostUpdateView, PostDeleteView, CommentCreateView, CommentUpdateView, CommentDeleteView
 
 
 #Define URL patterns
