@@ -40,8 +40,8 @@ urlpatterns = [
     #URLs for comments are added here
     path('post/<int:pk>/comment/', views.add_comment, name='add-comment'), # Add comment to a post
     path('post/<int:pk>/comment/new/', CommentCreateView.as_view(), name='comment_create'), # Create comment view
-    path('comments/<int:pk>/update/', CommentUpdateView.as_view(), name='comment-edit'), # Edit comment
-    path('comments/<int:pk>/delete/', CommentDeleteView.as_view(), name='comment-delete'), # Delete comment
+    path('comment/<int:pk>/update/', CommentUpdateView.as_view(), name='comment-edit'), # Edit comment
+    path('comment/<int:pk>/delete/', CommentDeleteView.as_view(), name='comment-delete'), # Delete comment
 
     
 ]
