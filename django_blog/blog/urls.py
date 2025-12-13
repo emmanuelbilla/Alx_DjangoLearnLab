@@ -7,7 +7,7 @@ from django.contrib.auth import views as auth_views
 from . import views
 
 #Required imports for CRUD operations on blog posts
-from .views import PostListView, PostDetailView, PostCreateView, PostUpdateView, PostDeleteView, CommentCreateView, CommentUpdateView, CommentDeleteView
+from .views import PostListView, PostDetailView, PostCreateView, PostUpdateView, PostDeleteView, CommentCreateView, CommentUpdateView, CommentDeleteView, PostsByTagListView
 
 
 #Define URL patterns
@@ -43,7 +43,7 @@ urlpatterns = [
     path('comment/<int:pk>/update/', CommentUpdateView.as_view(), name='comment-edit'), # Edit comment
     path('comment/<int:pk>/delete/', CommentDeleteView.as_view(), name='comment-delete'), # Delete comment
     path('search/', views.search_posts, name='search'), # Search posts
-    path('tags/<slug:tag_slug>/', views.posts_by_tag,name='posts_by_tag'), # View posts by tag
+    path('tags/<slug:tag_slug>/', PostsByTagListView.as_view(),name='posts_by_tag'), # View posts by tag
 
     
 ]

@@ -172,6 +172,17 @@ class CommentCreateView(LoginRequiredMixin, CreateView):
     def get_success_url(self):
         return self.object.post.get_absolute_url()
 
+# Defining view to list posts by tag
+class PostsByTagListView(ListView):
+    model = Post
+    template_name = 'blog/post_list.html'
+    context_object_name = 'posts'
+    paginate_by = 8
+
+    def get_queryset(self):
+        tag_slug = self.kwargs.get('tag_slug')
+        return Post.objects.filter(tags__slug=tag_slug).order_by('-published_date')
+
 def search_posts(request):
     query = request.GET.get('q')
     results = []
@@ -180,3 +191,4 @@ def search_posts(request):
             Q(title__icontains=query) | Q(content__icontains=query) | Q(tags__name__icontains=query)
         ).distinct() # To avoid duplicate results when multiple tags match
     return render(request, 'blog/search_results.html', {'results': results, 'query': query}) # Render search results template
+
