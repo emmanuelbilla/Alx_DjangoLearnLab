@@ -40,6 +40,8 @@ INSTALLED_APPS = [
 
     # Adding blog app
     'blog',
+
+    'taggit', # For tagging functionality
 ]
 
 MIDDLEWARE = [
