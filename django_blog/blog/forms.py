@@ -23,10 +23,11 @@ class RegistrationForm(UserCreationForm):
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ['title', 'content']
+        fields = ['title', 'content', 'tags']
         widgets = {
             'title': forms.TextInput(attrs={'placeholder': 'Enter post title'}),
             'content': forms.Textarea(attrs={'rows': 8, 'placeholder': 'Write your post content here...'}),
+            'tags': forms.TextInput(attrs={'placeholder': 'Add tags separated by commas'}),
         }
 
 #Comment form
