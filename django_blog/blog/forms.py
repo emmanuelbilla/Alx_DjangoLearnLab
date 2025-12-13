@@ -8,8 +8,8 @@ from django.contrib.auth.models import User
 
 # Import Post model
 from .models import Post # Import Post model for creating post forms
-
 from .models import Comment # Import Comment model for creating comment forms
+from taggit.forms import TagWidget # Import TagWidget for tag input
 
 # Define registration form
 class RegistrationForm(UserCreationForm):
@@ -21,13 +21,14 @@ class RegistrationForm(UserCreationForm):
 
 #Post form
 class PostForm(forms.ModelForm):
+    tags = forms.CharField(required=False, widget=TagWidget())
+
     class Meta:
         model = Post
         fields = ['title', 'content', 'tags']
         widgets = {
             'title': forms.TextInput(attrs={'placeholder': 'Enter post title'}),
             'content': forms.Textarea(attrs={'rows': 8, 'placeholder': 'Write your post content here...'}),
-            'tags': forms.TextInput(attrs={'placeholder': 'Add tags separated by commas'}),
         }
 
 #Comment form
