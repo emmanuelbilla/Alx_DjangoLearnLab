@@ -173,7 +173,7 @@ class CommentCreateView(LoginRequiredMixin, CreateView):
         return self.object.post.get_absolute_url()
 
 # Defining view to list posts by tag
-class PostsByTagListView(ListView):
+class PostByTagListView(ListView):
     model = Post
     template_name = 'blog/post_list.html'
     context_object_name = 'posts'
