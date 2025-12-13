@@ -7,7 +7,7 @@ User = get_user_model()
 
 # Serializer for User registration
 class RegisterSelializer(serializers.ModelSerializer):
-    password = serializers.CharField(write_only=True)
+    password = serializers.CharField()
 
     class Meta:
         model = User
@@ -24,6 +24,6 @@ class RegisterSelializer(serializers.ModelSerializer):
         user.save()
 
         Token.objects.create(user=user)
-        
+
         return user
     
